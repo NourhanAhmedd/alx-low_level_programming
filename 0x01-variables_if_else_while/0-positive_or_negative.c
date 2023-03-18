@@ -1,9 +1,9 @@
 #include <stdio.h>
-#include <stdllb.h>
+#include <stdlib.h>
 #include <time.h>
 
 /**
- * main - The Entry Poinr.
+ * main - The Entry Point.
  *
  * Description: This program will assign a number to n each time it is executed
  * and print whether the number in the variable n is positive or negative.
@@ -19,15 +19,15 @@ int main(void)
 	n = rand() - RAND_MAX / 2;
 	if (n > 0)
 	{
-		printf("%d is positive\n", n);
+		printf("%i is positive\n", n);
 	}
 	else if (n == 0)
 	{
-		printf("%d is zero\n", n);
+		printf("%i is zero\n", n);
 	}
 	else
 	{
-		printf("%d is negative\n", n);
+		printf("%i is negative\n", n);
 	}
 	return (0);
 }
