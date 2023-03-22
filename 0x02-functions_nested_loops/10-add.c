@@ -9,7 +9,7 @@
  * Return: sum (The sum of number1 and number2).
 */
 
-int add(char number1, int number2)
+int add(int number1, int number2)
 {
 	int sum = number1 + number2;
 
