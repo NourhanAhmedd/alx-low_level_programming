@@ -24,7 +24,7 @@ int main(void)
 		fibonacci1 = fibonacci2;
 		fibonacci2 = sum;
 
-		if (c == 49)
+		if (count == 49)
 		{
 			printf("\n");
 		}
