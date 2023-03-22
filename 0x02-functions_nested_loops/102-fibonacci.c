@@ -12,8 +12,8 @@
 int main(void)
 {
 	int count;
-	unsigned long fibonacci1;
-	unsigned long fibonacci2;
+	unsigned long fibonacci1 = 0;
+	unsigned long fibonacci2 = 1;
 	unsigned long sum;
 
 	for (count = 0; count < 50; count++)
