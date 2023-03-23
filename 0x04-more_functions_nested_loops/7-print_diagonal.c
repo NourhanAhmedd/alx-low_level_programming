@@ -18,9 +18,7 @@ void print_diagonal(int n)
 		for (backslash = 1; backslash <= n; backslash++)
 		{
 			for (s = 1; s <= backslash; s++)
-			{
 				_putchar(' ');
-			}
 			_putchar(92);
 			_putchar('\n');
 		}
