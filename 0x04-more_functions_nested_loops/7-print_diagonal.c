@@ -8,8 +8,7 @@
 
 void print_diagonal(int n)
 {
-	int backslash;
-	int s;
+	int backslash, s;
 
 	if (n <= 0)
 		_putchar('\n');
