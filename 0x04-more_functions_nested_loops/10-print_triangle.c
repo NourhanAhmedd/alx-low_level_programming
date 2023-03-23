@@ -21,7 +21,7 @@ void print_triangle(int size)
 		{
 			for (c = 1; c <= size; c++)
 			{
-				if ((r + c) >= size)
+				if ((r + c) <= size)
 				{
 					_putchar(' ');
 				}
