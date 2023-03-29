@@ -12,12 +12,10 @@ char *leet(char *character)
 {
 	char *pointer;
 	unsigned int index;
-	char letters[];
-	int numbers[];
+	char letters[] = {'A', 'E', 'O', 'T', 'L'};
+	int numbers[] = {4, 3, 0, 7, 1};
 
 	*pointer = character;
-	letters[] = {'A', 'E', 'O', 'T', 'L'};
-	numbers[] = {4, 3, 0, 7, 1};
 	while (*character)
 	{
 		for (index = 0; index < sizeof(letters) / sizeof(char); index++)
