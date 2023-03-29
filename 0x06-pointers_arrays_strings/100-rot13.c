@@ -25,7 +25,7 @@ char *rot13(char *str)
 				break;
 			}
 		}
-		str++
+		str++;
 	}
 	return (pointer);
 }
