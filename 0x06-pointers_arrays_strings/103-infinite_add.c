@@ -13,7 +13,7 @@
 
 char *infinite_add(char *n1, char *n2, char *r, int size_r)
 {
-	int index1, index2;
+	int index1 = 0, index2 = 0;
 	int number1, number2;
 	int i, largest = 0, carryout = 0;
 
