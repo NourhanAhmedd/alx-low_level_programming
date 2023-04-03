@@ -12,7 +12,7 @@
 
 char *_strstr(char *haystack, char *needle)
 {
-	for (*haystack = 0; *haystack != '\0'; *haystack++)
+	for (; *haystack != '\0'; haystack++)
 	{
 		char *pointer1 = haystack;
 		char *pointer2 = needle;
@@ -23,9 +23,7 @@ char *_strstr(char *haystack, char *needle)
 			*pointer2++;
 		}
 		if (*pointer2 == '\0')
-		{
 			return (haystack);
-		}
 	}
 	return (0);
 }
