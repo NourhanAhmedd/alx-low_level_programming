@@ -10,7 +10,6 @@
 
 int is_palindrome(char *s);
 int check_palindrome(char *s, int i, int e, int m);
-
 int last_index(char *s)
 {
 	int number = 0;
