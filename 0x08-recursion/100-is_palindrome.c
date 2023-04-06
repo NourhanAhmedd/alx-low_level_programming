@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * index - Function that prints the last index.
+ * last_index - Function that prints the last index.
  *
  * @s: Takes input for the function.
  *
@@ -10,13 +10,13 @@
 
 int is_palindrome(char *s);
 int check_palindrome(char *s, int i, int e, int m);
-int index(char *s);
-int index(char *s)
+
+int last_index(char *s)
 {
 	int number = 0;
 
 	if (*s > '\0')
-		number += index(s + 1) + 1;
+		number += last_index(s + 1) + 1;
 	return (number);
 }
 
@@ -31,7 +31,7 @@ int index(char *s)
 
 int is_palindrome(char *s)
 {
-	int e = index(s);
+	int e = last_index(s);
 
 	return (check_palindrome(s, 0, e - 1, e % 2));
 }
