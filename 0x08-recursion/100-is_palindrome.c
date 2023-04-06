@@ -1,6 +1,28 @@
 #include "main.h"
 
 /**
+ * index - Function that prints the last index.
+ *
+ * @s: Takes input for the function.
+ *
+ * Return: It will return (number).
+*/
+
+int is_palindrome(char *s);
+int check_palindrome(char *s, int i, int e, int m);
+int index(char *s)
+{
+	int number;
+
+	number = 0;
+	if (*s > '\0')
+	{
+		number = number + index(s + 1) + 1;
+	}
+	return (number);
+}
+
+/**
  * is_palindrome - Function that returns 1 if a string is
  * a palindrome and 0 if not.
  *
@@ -41,24 +63,4 @@ int check_palindrome(char *s, int i, int e, int m)
 	{
 		return (check_palindrome(s, i + 1, e - 1, mod));
 	}
-}
-
-/**
- * index - Function that prints the last index.
- *
- * @s: Takes input for the function.
- *
- * Return: It will return (number).
-*/
-
-int index(char *s)
-{
-	int number;
-
-	number = 0;
-	if (*s > '\0')
-	{
-		number = number + index(s + 1) + 1;
-	}
-	return (number);
 }
