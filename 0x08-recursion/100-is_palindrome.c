@@ -15,9 +15,7 @@ int index(char *s)
 	int number = 0;
 
 	if (*s > '\0')
-	{
 		number = number + index(s + 1) + 1;
-	}
 	return (number);
 }
 
@@ -51,15 +49,9 @@ int is_palindrome(char *s)
 int check_palindrome(char *s, int i, int e, int m)
 {
 	if ((i == e && m != 0) || (i == e + 1 && m == 0))
-	{
 		return (1);
-	}
 	else if (s[i] != s[e])
-	{
 		return (0);
-	}
 	else
-	{
 		return (check_palindrome(s, i + 1, e - 1, mod));
-	}
 }
