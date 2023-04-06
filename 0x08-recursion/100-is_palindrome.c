@@ -9,7 +9,7 @@
 */
 
 int is_palindrome(char *s);
-int check_palindrome(char *s, int i, int e, int m);
+int check(char *s, int start, int end, int mod);
 int last_index(char *s)
 {
 	int number = 0;
@@ -32,26 +32,26 @@ int is_palindrome(char *s)
 {
 	int e = last_index(s);
 
-	return (check_palindrome(s, 0, e - 1, e % 2));
+	return (check(s, 0, e - 1, e % 2));
 }
 
 /**
- * check_palindrome - Function that checks the palindrome.
+ * check - Function that checks the palindrome.
  *
  * @s: Takes input for the function.
- * @i: An integer (Start - from right to left).
- * @e: An integer (End - from left to right).
- * @m: An integer (mod).
+ * @start: An integer (Start - from right to left).
+ * @end: An integer (End - from left to right).
+ * @mod: An integer (mod).
  *
  * Return: It will return (check_palindrome(s, i + 1, e - 1, mod)).
 */
 
-int check_palindrome(char *s, int i, int e, int m)
+int check(char *s, int start, int end, int mod)
 {
-	if ((i == e && m != 0) || (i == e + 1 && m == 0))
+	if ((start == end && mod != 0) || (start == end + 1 && mod == 0))
 		return (1);
-	else if (s[i] != s[e])
+	else if (s[start] != s[end])
 		return (0);
 	else
-		return (check_palindrome(s, i + 1, e - 1, mod));
+		return (check(s, start + 1, end - 1, mod));
 }
