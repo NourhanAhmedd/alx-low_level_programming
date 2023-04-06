@@ -10,12 +10,13 @@
 
 int is_palindrome(char *s);
 int check_palindrome(char *s, int i, int e, int m);
+int index(char *s);
 int index(char *s)
 {
 	int number = 0;
 
 	if (*s > '\0')
-		number = number + index(s + 1) + 1;
+		number += index(s + 1) + 1;
 	return (number);
 }
 
