@@ -69,7 +69,7 @@ int main(int argc, char *argv[])
 
 	if (argc < 3 || argc > 3)
 	{
-		printf("There is an error..");
+		printf("There is an error..\n");
 		return (1);
 	}
 	number_1 = _atoi(argv[1]);
