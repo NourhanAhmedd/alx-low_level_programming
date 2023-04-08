@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include "main.h"
 #include <stdlib.h>
 #include <ctype.h>
 #include <string.h>
@@ -17,7 +16,7 @@ int check_string(char *s)
 	unsigned int length;
 
 	length = 0;
-	while (length; < strlen(s))
+	while (length < strlen(s))
 	{
 		if (!isdigit(s[length]))
 		{
