@@ -11,13 +11,19 @@
 
 int _atoi(char *s)
 {
-	int index = 0;
-	int j = 0;
-	int i = 0;
-	int Digit = 0;
-	int number = 0;
-	int length = 0;
+	int index;
+	int j;
+	int i;
+	int Digit;
+	int number;
+	int length;
 
+	index = 0;
+	j = 0;
+	i = 0;
+	Digit = 0;
+	number = 0;
+	length = 0;
 	while (s[length] != '\0')
 		length++;
 	while (index < length && i == 0)
