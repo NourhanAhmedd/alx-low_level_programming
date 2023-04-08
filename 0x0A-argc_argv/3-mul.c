@@ -19,36 +19,26 @@ int _atoi(char *s)
 	int length = 0;
 
 	while (s[length] != '\0')
-	{
 		length++;
-	}
 	while (index < length && i == 0)
 	{
 		if (s[index] == '-')
-		{
 			++j;
-		}
 		if (s[index] >= '0' && s[index] <= '9')
 		{
 			Digit = s[index] - '0';
 			if (j % 2)
-			{
 				Digit = -Digit;
-			}
 			number = number * 10 + Digit;
 			i = 1;
 			if (s[index + 1] < '0' || s[index + 1] > '9')
-			{
 				break;
-			}
 			i = 0;
 		}
 		index++;
 	}
 	if (i == 0)
-	{
 		return (0);
-	}
 	return (number);
 }
 
