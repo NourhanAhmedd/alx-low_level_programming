@@ -2,14 +2,14 @@
 #include "main.h"
 
 /**
- * _atio - This function will convert the string to an integer.
+ * _atoi - This function will convert the string to an integer.
  *
  * @s: The string.
  *
  * Return: It will return (number).
 */
 
-int _atio(char *s)
+int _atoi(char *s)
 {
 	int index = 0;
 	int j = 0;
