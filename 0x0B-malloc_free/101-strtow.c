@@ -3,21 +3,21 @@
 /**
  * number_of_words - Function that prints the number of words.
  *
- * @str: The string.
+ * @STR: The string.
  *
  * Return: It will return (count).
 */
 
-int number_of_words(char *str)
+int number_of_words(char *STR)
 {
 	int count = 0;
 	int index;
 
-	for (index = 0; str[index]; index++)
+	for (index = 0; STR[index]; index++)
 	{
-		if (str[index] == ' ')
+		if (STR[index] == ' ')
 		{
-			if (s[index + 1] != ' ' && s[index + 1] != '\0')
+			if (STR[index + 1] != ' ' && STR[index + 1] != '\0')
 			{
 				count++;
 			}
