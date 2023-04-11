@@ -54,11 +54,11 @@ char *str_concat(char *s1, char *s2)
 	{
 		if (index < s1_size)
 		{
-			p[index] = s1_size[index];
+			p[index] = s1[index];
 		}
 		else
 		{
-			p[index] = s2_size[index];
+			p[index] = s2[index - s1_size];
 		}
 	}
 	p[index] = '\0';
