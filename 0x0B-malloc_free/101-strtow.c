@@ -76,7 +76,7 @@ char **strtow(char *str)
 				p[w][i4] = str[i1 + i4];
 			p[w][i4] = '\0';
 			w++;
-			i1 = i1 + i2;
+			i1 += i2;
 		}
 		else
 			i1++;
