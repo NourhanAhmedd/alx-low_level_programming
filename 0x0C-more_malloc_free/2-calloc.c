@@ -12,7 +12,7 @@
 
 char *_m(char *str, char c, unsigned int num)
 {
-	int *p = str;
+	char *p = str;
 
 	while (num--)
 	{
