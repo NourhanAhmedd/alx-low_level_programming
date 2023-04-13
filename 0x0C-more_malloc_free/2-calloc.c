@@ -1,25 +1,25 @@
 #include "main.h"
-#include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 
 /**
- * *_memset - Function that prints a constant byte.
+ * *_mset - Function that prints a constant byte.
  *
- * @s: The string (pointer).
- * @b: A constant byte.
- * @n: The maximum bytes.
+ * @str: The string (pointer).
+ * @c: A constant byte.
+ * @num: The maximum bytes.
  *
- * Return: It will return (ptr).
+ * Return: It will return (str).
 */
 
-char *_memset(char *s, char b, unsigned int n)
+char *_mset(char *str, char c, unsigned int num)
 {
-	char *ptr = s;
+	unsigned int index;
 
-	while (n--)
-		*s++ = b;
-	return (ptr);
+	for (index = 0; index < n; index++)
+	{
+		str[index] = c;
+	}
+	return (str);
 }
 
 /**
@@ -29,21 +29,25 @@ char *_memset(char *s, char b, unsigned int n)
  * @nmemb: An array of elements.
  * @size: The size of elements.
  *
- * Return: It will return (ptr).
+ * Return: It will return (p).
 */
 
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
-	void *ptr;
+	char *p;
 
 	if (size == 0 || nmemb == 0)
+	{
 		return (NULL);
+	}
 
-	ptr = malloc(sizeof(int) * nmemb);
+	p = malloc(size * nmemb);
 
-	if (ptr == 0)
+	if (p == NULL)
+	{
 		return (NULL);
-	_memset(ptr, 0, sizeof(int) * nmemb);
+	}
+	_mset(p, 0, nmemb * size);
 
-	return (ptr);
+	return (p);
 }
