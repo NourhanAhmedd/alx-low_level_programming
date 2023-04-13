@@ -15,7 +15,7 @@ char *_mset(char *str, char c, unsigned int num)
 {
 	unsigned int index;
 
-	for (index = 0; index < n; index++)
+	for (index = 0; index < num; index++)
 	{
 		str[index] = c;
 	}
