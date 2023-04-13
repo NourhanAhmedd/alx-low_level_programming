@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * *_m - Function that prints a constant byte.
+ * *_memset - Function that prints a constant byte.
  *
  * @str: The string (pointer).
  * @c: A constant byte.
@@ -10,7 +10,7 @@
  * Return: It will return (p).
 */
 
-char *_m(char *str, char c, unsigned int num)
+char *_memset(char *str, char c, unsigned int num)
 {
 	char *p = str;
 
@@ -44,7 +44,7 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 	{
 		return (NULL);
 	}
-	_m(ptr, 0, sizeof(int) * nmemb);
+	_memset(ptr, 0, sizeof(int) * nmemb);
 
 	return (ptr);
 }
