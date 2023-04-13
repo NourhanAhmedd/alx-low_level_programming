@@ -3,22 +3,22 @@
 /**
  * *_memset - Function that prints a constant byte.
  *
- * @str: The string (pointer).
- * @c: A constant byte.
- * @num: The maximum bytes.
+ * @s: The string (pointer).
+ * @b: A constant byte.
+ * @n: The maximum bytes.
  *
- * Return: It will return (p).
+ * Return: It will return (ptr).
 */
 
-char *_memset(char *str, char c, unsigned int num)
+char *_memset(char *s, char b, unsigned int n)
 {
-	char *p = str;
+	char *ptr = s;
 
-	while (num--)
+	while (n--)
 	{
-		*str++ = c;
+		*s++ = b;
 	}
-	return (p);
+	return (ptr);
 }
 
 /**
