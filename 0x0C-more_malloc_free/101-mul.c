@@ -1,71 +1,56 @@
 #include "main.h"
+#include <stdlib.h>
+#include <stdio.h>
+#define ERR_MSG "Error"
 
 /**
- * _puts - Function that prints a string.
- *
- * @str: Takes input for the function.
-*/
-
-void _puts(char *str)
-{
-	int index = 0;
-
-	while (str[index])
-	{
-		_putchar(str[index]);
-		index++;
-	}
-}
-
-/**
- * _atoi - Function that converts (string to integer).
+ * is_digit - Function that checks a string.
  *
  * @s: The string.
  *
- * Return: It will return (d * r).
+ * Return: (0) if a non-digit is found or (1).
 */
 
-int _atoi(const char *s)
+int is_digit(char *s)
 {
-	int d = 1;
-	unsigned long int r = 0;
-	unsigned long int index;
-	unsigned long int number1;
+	int i = 0;
 
-	for (number1 = 0; !(s[number1] >= 48 && s[number1] <= 57); number1++)
+	while (s[i])
 	{
-		if (s[number] == '-')
-		{
-			d *= -1;
-		}
+		if (s[i] < '0' || s[i] > '9')
+			return (0);
+		i++;
 	}
-	for (index = number1; s[index] >= 48 && s[index] <= 57; index++)
-	{
-		r *= 10;
-		r += (s[index] - 48);
-	}
-	return (d * r);
+	return (1);
 }
 
 /**
- * print_int - Function that prints an integer.
+ * _strlen - Function that prints the length of a string.
  *
- * @n: Takes input for the function.
+ * @s: The string.
+ *
+ * Return: It will return (i).
 */
 
-void print_int(unsigned long int n)
+int _strlen(char *s)
 {
-	unsigned long int index;
-	unsigned long int r;
-	unsigned long int d = 1;
+	int i = 0;
 
-	for (index = 0; n / d > 9; index++, d *= 10)
-		;
-	for (; d >= 1; n %= d, d /= 10)
+	while (s[i] != '\0')
 	{
-		r = n / d;
-		_putchar('0' + r);
+		i++;
 	}
+	return (i);
+}
+
+/**
+ * errors - Function that handles the errors.
+*/
+
+void errors(void)
+{
+	printf("Error\n");
+	exit(98);
 }
 
 /**
@@ -77,17 +62,46 @@ void print_int(unsigned long int n)
  * Return: It will return (0).
 */
 
-int main(int argc, char const *argv[])
+int main(int argc, char *argv[])
 {
-	(void)argc;
+	int len1, len2, len, i, carry, digit1, digit2, *result, a = 0;
+	char *s1, *s2;
 
-	if (argc != 3)
+	s1 = argv[1], s2 = argv[2];
+	if (argc != 3 || !is_digit(s1) || !is_digit(s2))
+		errors();
+	len1 = _strlen(s1);
+	len2 = _strlen(s2);
+	len = len1 + len2 + 1;
+	result = malloc(sizeof(int) * len);
+	if (!result)
+		return (1);
+	for (i = 0; i <= len1 + len2; i++)
+		result[i] = 0;
+	for (len1 = len1 - 1; len1 >= 0; len1--)
 	{
-		_puts("Error ");
-		exit(98);
+		digit1 = s1[len1] - '0';
+		carry = 0;
+		for (len2 = _strlen(s2) - 1; len2 >= 0; len2--)
+		{
+			digit2 = s2[len2] - '0';
+			carry += result[len1 + len2 + 1] + (digit1 * digit2);
+			result[len1 + len2 + 1] = carry % 10;
+			carry /= 10;
+		}
+		if (carry > 0)
+			result[len1 + len2 + 1] += carry;
 	}
-	print_int(_atoi(argv[1]) * _atoi(argv[2]));
+	for (i = 0; i < len - 1; i++)
+	{
+		if (result[i])
+			a = 1;
+		if (a)
+			_putchar(result[i] + '0');
+	}
+	if (!a)
+		_putchar('0');
 	_putchar('\n');
-
+	free(result);
 	return (0);
 }
