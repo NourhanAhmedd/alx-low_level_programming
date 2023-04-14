@@ -1,4 +1,7 @@
 #include "main.h"
+#include <stdlib.h>
+#include <stdio.h>
+#define ERR_MSG "Error"
 
 /**
  * _puts - Function that prints a string.
