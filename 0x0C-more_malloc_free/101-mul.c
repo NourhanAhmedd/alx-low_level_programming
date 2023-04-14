@@ -3,16 +3,16 @@
 /**
  * _puts - Function that prints a string.
  *
- * @s: Takes input for the function.
+ * @str: Takes input for the function.
 */
 
-void _puts(char *s)
+void _puts(char *str)
 {
 	int index = 0;
 
-	while (s[index])
+	while (str[index])
 	{
-		_putchar(s[index]);
+		_putchar(str[index]);
 		index++;
 	}
 }
@@ -20,40 +20,40 @@ void _puts(char *s)
 /**
  * _atoi - Function that converts (string to integer).
  *
- * @str: The string.
+ * @s: The string.
  *
- * Return: It will return (s * r).
+ * Return: It will return (d * r).
 */
 
-int _atoi(const char *str)
+int _atoi(const char *s)
 {
-	int s = 1;
+	int d = 1;
 	unsigned long int r = 0;
 	unsigned long int index;
 	unsigned long int number1;
 
-	for (number1 = 0; !(str[number1] >= 48 && str[number1] <= 57); number1++)
+	for (number1 = 0; !(s[number1] >= 48 && s[number1] <= 57); number1++)
 	{
-		if (str[number] == '-')
+		if (s[number] == '-')
 		{
-			s *= -1;
+			d *= -1;
 		}
 	}
-	for (index = number1; str[index] >= 48 && str[index] <= 57; index++)
+	for (index = number1; s[index] >= 48 && s[index] <= 57; index++)
 	{
 		r *= 10;
-		r += (str[index] - 48);
+		r += (s[index] - 48);
 	}
-	return (s * r);
+	return (d * r);
 }
 
 /**
- * print_integer - Function that prints an integer.
+ * print_int - Function that prints an integer.
  *
  * @n: Takes input for the function.
 */
 
-void print_integer(unsigned long int n)
+void print_int(unsigned long int n)
 {
 	unsigned long int index;
 	unsigned long int r;
@@ -86,7 +86,7 @@ int main(int argc, char const *argv[])
 		_puts("Error ");
 		exit(98);
 	}
-	print_integer(_atoi(argv[1]) * _atoi(argv[2]));
+	print_int(_atoi(argv[1]) * _atoi(argv[2]));
 	_putchar('\n');
 
 	return (0);
