@@ -1,7 +1,4 @@
 #include "main.h"
-#include <stdlib.h>
-#include <stdio.h>
-#define ERR_MSG "Error"
 
 /**
  * _puts - Function that prints a string.
@@ -39,13 +36,13 @@ int _atoi(const char *str)
 	{
 		if (str[number] == '-')
 		{
-			s = s * -1;
+			s *= -1;
 		}
 	}
 	for (index = number1; str[index] >= 48 && str[index] <= 57; index++)
 	{
-		r = r * 10;
-		r = r + (str[index] - 48);
+		r *= 10;
+		r += (str[index] - 48);
 	}
 	return (s * r);
 }
@@ -62,9 +59,9 @@ void print_integer(unsigned long int n)
 	unsigned long int r;
 	unsigned long int d = 1;
 
-	for (index = 0; n / d > 9; index++, d = d * 10)
+	for (index = 0; n / d > 9; index++, d *= 10)
 		;
-	for (; d >= 1; n = n % d, d = d / 10)
+	for (; d >= 1; n %= d, d /= 10)
 	{
 		r = n / d;
 		_putchar('0' + r);
