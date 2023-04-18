@@ -1,5 +1,5 @@
-#include "dog.h"
 #include <stdlib.h>
+#include "dog.h"
 /**
  * length - Function that prints the length of the string.
  * @s: The string.
@@ -41,36 +41,36 @@ char copy_string(char *d, char *s)
  * @name: The name of the dog.
  * @age: The age of the dog.
  * @owner: The owner of the dog.
- * Return: It will return ().
+ * Return: It will return (dog).
 */
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	dog_t *ptr;
+	dog_t *dog;
 
 	if (!name || age < 0 || !owner)
 	{
 		return (NULL);
 	}
-	ptr = (dog_t *)malloc(sizeof(dog_t));
-	if (ptr == NULL)
+	dog = (dog_t *)malloc(sizeof(dog_t));
+	if (dog == NULL)
 	{
 		return (NULL);
 	}
-	ptr->name = malloc(sizeof(char) * (length(name) + 1));
-	if ((*ptr).name == NULL)
+	dog->name = malloc(sizeof(char) * (length(name) + 1));
+	if ((*dog).name == NULL)
 	{
-		free(ptr);
+		free(dog);
 		return (NULL);
 	}
-	ptr->owner = malloc(sizeof(char) * (length(owner) + 1));
-	if ((*ptr).owner == NULL)
+	dog->owner = malloc(sizeof(char) * (length(owner) + 1));
+	if ((*dog).owner == NULL)
 	{
-		free(ptr->name);
-		free(ptr);
+		free(dog->name);
+		free(dog);
 		return (NULL);
 	}
-	ptr->name = copy_string(ptr->name, name);
-	ptr->age = age;
-	ptr->owner = copy_string(ptr->owner, owner);
-	return (ptr);
+	dog->name = copy_string(dog->name, name);
+	dog->age = age;
+	dog->owner = copy_string(dog->owner, owner);
+	return (dog);
 }
