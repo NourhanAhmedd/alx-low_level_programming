@@ -7,7 +7,7 @@
  *
  * Return: 0 (Success).
 */
-int main(int argc, int char **argv)
+int main(int argc, char **argv)
 {
 	int (*operation_function)(int, int), n1, n2;
 

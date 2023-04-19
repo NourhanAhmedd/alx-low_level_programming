@@ -7,7 +7,6 @@
 */
 int (*get_op_func(char *s))(int, int)
 {
-	/* The given code: */
 	op_t ops[] = {
 		{"+", op_add},
 		{"-", op_sub},
@@ -16,9 +15,8 @@ int (*get_op_func(char *s))(int, int)
 		{"%", op_mod},
 		{NULL, NULL}
 	};
-	int i;
+	int i = 0;
 
-	i = 0;
 	/* From (i = 0) to (i = 4): */
 	while (i < 5)
 	{
