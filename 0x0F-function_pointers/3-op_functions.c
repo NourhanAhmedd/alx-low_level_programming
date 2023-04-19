@@ -5,14 +5,11 @@
  * @a: Takes the first number.
  * @b: Takes the second number.
  *
- * Return: It will return (add).
+ * Return: It will return (a + b).
 */
 int op_add(int a, int b)
 {
-	int add;
-
-	add = a + b;
-	return (add);
+	return (a + b);
 }
 
 /**
@@ -21,14 +18,11 @@ int op_add(int a, int b)
  * @a: Takes the first number.
  * @b: Takes the second number.
  *
- * Return: It will return (sub).
+ * Return: It will return (a - b).
 */
 int op_sub(int a, int b)
 {
-	int sub;
-
-	sub = a - b;
-	return (sub);
+	return (a - b);
 }
 
 /**
@@ -37,14 +31,11 @@ int op_sub(int a, int b)
  * @a: Takes the first number.
  * @b: Takes the second number.
  *
- * Return: It will return (mul).
+ * Return: It will return (a * b).
 */
 int op_mul(int a, int b)
 {
-	int mul;
-
-	mul = a * b;
-	return (mul);
+	return (a * b);
 }
 
 /**
@@ -53,14 +44,11 @@ int op_mul(int a, int b)
  * @a: Takes the first number.
  * @b: Takes the second number.
  *
- * Return: It will return (div).
+ * Return: It will return (a / b).
 */
 int op_div(int a, int b)
 {
-	int div;
-
-	div = a / b;
-	return (div);
+	return (a / b);
 }
 
 /**
@@ -69,12 +57,9 @@ int op_div(int a, int b)
  * @a: Takes the first number.
  * @b: Takes the second number.
  *
- * Return: It will return (mod).
+ * Return: It will return (a % b).
 */
 int op_mod(int a, int b)
 {
-	int mod;
-
-	mod = a % b;
-	return (mod);
+	return (a % b);
 }
