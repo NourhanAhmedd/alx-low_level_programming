@@ -61,7 +61,7 @@ void print_all(const char * const format, ...)
 	int index1 = 0;
 	int index2;
 	char *s = "";
-	format_t formats[] = {
+	token_t formats[] = {
 		{"c", char_f},
 		{"i", int_f},
 		{"f", float_f},
@@ -75,9 +75,9 @@ void print_all(const char * const format, ...)
 	{
 		index2 = 0;
 
-		while (formats[index2].format_token)
+		while (formats[index2].token)
 		{
-			if (format[index1] == formats[index2].format_token[0])
+			if (format[index1] == formats[index2].token[0])
 			{
 				formats[index2].f(s, p);
 				s = ", ";
