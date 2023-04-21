@@ -9,12 +9,12 @@ void print_all(const char * const format, ...);
 
 /**
  * struct token - The list of types of arguments passed to the function.
- * @_token: The format.
+ * @token: The format.
  * @f: The Function (pointer to function).
 */
 typedef struct token
 {
-	char token;
+	char *token;
 	/* va_list: It will hold information needed by other facilities. */
 	void (*f)(char *, va_list);
 } token_t;
