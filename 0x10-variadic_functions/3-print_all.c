@@ -42,15 +42,12 @@ void float_f(char *separator, va_list p)
 */
 void string_f(char *separator, va_list p)
 {
-	char *s;
+	char *s = va_arg(p, char *);
 
-	s = va_arg(p, char *);
 	switch ((int)(!s))
 	{
 		case 1:
-			{
-				s = "(nil)";
-			}
+			s = "(nil)";
 	}
 	printf("%s%s", separator, s);
 }
