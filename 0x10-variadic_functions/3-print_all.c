@@ -75,7 +75,7 @@ void print_all(const char * const format, ...)
 	{
 		index2 = 0;
 
-		while (formats[index2], token)
+		while (formats[index2].token)
 		{
 			if (format[index1] == formats[index2].token[0])
 			{
