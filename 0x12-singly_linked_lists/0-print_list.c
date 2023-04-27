@@ -10,7 +10,7 @@ int s_len(char *str)
 {
 	int index;
 
-	index= 0;
+	index = 0;
 	/*  if condition: */
 	if (!str)
 	{
