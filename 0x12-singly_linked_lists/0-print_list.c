@@ -1,12 +1,12 @@
 #include "lists.h"
 /**
- * _strlen - Function that returns the length.
+ * s_len - Function that returns the length.
  *
  * @st: The string.
  *
  * Return: It will return (index).
  */
-int _strlen(char *st)
+int s_len(char *st)
 {
 	int index;
 
