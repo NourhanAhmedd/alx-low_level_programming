@@ -1,24 +1,24 @@
 #include "lists.h"
 /**
- * s_len - Function that returns the length.
+ * _strlen - Function that returns the length.
  *
- * @str: The string.
+ * @st: The string.
  *
  * Return: It will return (index).
  */
-int s_len(char *str)
+int _strlen(char *st)
 {
 	int index;
 
 	index = 0;
 	/*  if condition: */
-	if (!str)
+	if (!st)
 	{
 		return (0);
 	}
 
 	/* while loop: */
-	while (*str++)
+	while (*st++)
 	{
 		index++;
 	}
