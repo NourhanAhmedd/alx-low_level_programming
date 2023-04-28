@@ -1,10 +1,14 @@
 #include "lists.h"
+
+/* Write a function that prints You're beat! and yet, */
+/* you must allow,\nI bore my house upon my back!\n */
+/* before the main function is executed. */
 void _constructor(void) __attribute__ ((constructor));
 
 /**
- * _constructor - Write a function that prints You're beat!
- * and yet, you must allow,\nI bore my house upon my back!\n
- * before the main function is executed.
+ * _constructor - executes before main()
+ *
+ * Return: void
  */
 void _constructor(void)
 {
