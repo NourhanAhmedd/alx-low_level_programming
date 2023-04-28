@@ -1,12 +1,12 @@
-/* The assembly code: /*
+;The assembly code:
 
 extern printf
 
-/* The text section: */
+;The text section:
 section .text
 global main
 
-/* The main section: */
+;The main section:
 main:
 push rbp
 mov rdi, fmt
@@ -17,7 +17,7 @@ pop rbp
 mov rax, 0
 ret
 
-/* The data section: */
+;The data section:
 section .data
 write_message: db "Hello, Holberton", 0
 fmt: db "%s", 10, 0
