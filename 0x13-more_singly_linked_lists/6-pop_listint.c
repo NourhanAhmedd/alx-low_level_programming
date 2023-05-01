@@ -3,11 +3,11 @@
  * pop_listint - Write a function that deletes the head node of a
  * listint_t linked list, and returns the head node’s data (n).
  * @head: The pointer.
- * Return: It will return (d).
+ * Return: It will return (n).
  */
 int pop_listint(listint_t **head)
 {
-	int d;
+	int n;
 	listint_t *n_n;
 
 	/* If condition: */
@@ -17,9 +17,9 @@ int pop_listint(listint_t **head)
 	}
 
 	n_n = (*head)->next;
-	d = (*head)->d;
+	n = (*head)->n;
 	free(*head);
 	*head = n_n;
 
-	return (d);
+	return (n);
 }
