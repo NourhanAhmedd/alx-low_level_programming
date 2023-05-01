@@ -7,10 +7,10 @@
 listint_t *reverse_listint(listint_t **head)
 {
 	listint_t *n_n;
-	listint_t *nxt_node;
+	listint_t *next;
 
 	n_n = NULL;
-	nxt_node = NULL;
+	next = NULL;
 	/* If condition: */
 	if (!head || !*head)
 	{
@@ -22,10 +22,10 @@ listint_t *reverse_listint(listint_t **head)
 	/* While loop: */
 	while (n_n)
 	{
-		nxt_node = n_n->nxt_node;
-		n_n->nxt_node = *head;
+		next = n_n->next;
+		n_n->next = *head;
 		*head = n_n;
-		n_n = nxt_node;
+		n_n = next;
 	}
 
 	return (*head);
