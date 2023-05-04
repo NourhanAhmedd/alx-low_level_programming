@@ -4,7 +4,7 @@
  * number to an unsigned int.
  * @b: The pointing to a string of 0 and 1 chars.
  * Return: It will return (v).
- */
+*/
 unsigned int binary_to_uint(const char *b)
 {
 	unsigned int v;
