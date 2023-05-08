@@ -23,28 +23,28 @@ int main(int argc, char **argv)
 	s_f_n = 0
 	e_f_n = 0;
 	/* If condition: */
-	if (ac != 3)
+	if (argc != 3)
 		dprintf(STDERR_FILENO, USAGE), exit(97);
-	s_f_n = open(av[1], O_RDONLY);
+	s_f_n = open(argv[1], O_RDONLY);
 	/* If condition: */
 	if (s_f_n == -1)
-		dprintf(STDERR_FILENO, ERR_NOREAD, av[1]), exit(98);
+		dprintf(STDERR_FILENO, ERR_NOREAD, argv[1]), exit(98);
 	e_f_n = open(av[2], O_WRONLY | O_CREAT | O_TRUNC, PERMISSIONS);
 	/* If condition: */
 	if (e_f_n == -1)
-		dprintf(STDERR_FILENO, ERR_NOWRITE, av[2]), exit(99);
+		dprintf(STDERR_FILENO, ERR_NOWRITE, argv[2]), exit(99);
 	/* While loop: */
-	while ((s = read(s_f_n, br, READ_BUF_SIZE)) > 0)
+	while ((s = read(s_f_n, br, BUFFER_S)) > 0)
 	{
 		if (write(e_f_n, br, s) != s)
 		{
-			dprintf(STDERR_FILENO, ERR_NOWRITE, av[2]);
+			dprintf(STDERR_FILENO, ERR_NOWRITE, argv[2]);
 			exit(99);
 		}
 	}
 	/* If condition: */
 	if (s == -1)
-		dprintf(STDERR_FILENO, ERR_NOREAD, av[1]), exit(98);
+		dprintf(STDERR_FILENO, ERR_NOREAD, argv[1]), exit(98);
 	s_f_n = close(s_f_n);
 	e_f_n = close(e_f_n);
 	/* If condition: */
