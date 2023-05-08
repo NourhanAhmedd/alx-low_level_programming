@@ -3,7 +3,7 @@
  * s_len - Write a function that prints the length.
  * @str: The string.
  * Return: It will return (index).
- */
+*/
 int s_len(char *str)
 {
 	int index;
