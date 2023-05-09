@@ -1,28 +1,28 @@
 #include "main.h"
 #include <elf.h>
-void p_o_m(Elf64_Ehdr e);
+void p_o_m(Elf64_Ehdr h);
 /**
  * p_m - Write a function that returns the ELF magic.
- * @e: The elf header.
+ * @h: The elf header.
 */
-void p_m(Elf64_Ehdr e)
+void p_m(Elf64_Ehdr h)
 {
 	int index;
 
 	printf("  Magic:   ");
 	/* For loop: */
 	for (index = 0; index < EI_NIDENT; index++)
-		printf("%2.2x%s", e.e_ident[index], index == EI_NIDENT - 1 ? "\n" : " ");
+		printf("%2.2x%s", h.e_ident[index], index == EI_NIDENT - 1 ? "\n" : " ");
 }
 /**
  * p_c - Write a function that returns the ELF class.
- * @e: The elf header.
+ * @h: The elf header.
 */
-void p_c(Elf64_Ehdr e)
+void p_c(Elf64_Ehdr h)
 {
 	printf("  Class:                             ");
 	/* Switch: */
-	switch (e.e_ident[EI_CLASS])
+	switch (h.e_ident[EI_CLASS])
 	{
 		/* Case 1: */
 		case ELFCLASS64:
@@ -42,13 +42,13 @@ void p_c(Elf64_Ehdr e)
 }
 /**
  * p_d - Write a function that returns the ELF data.
- * @e: The elf header.
+ * @h: The elf header.
 */
-void p_d(Elf64_Ehdr e)
+void p_d(Elf64_Ehdr h)
 {
 	printf("  Data:                              ");
 	/* Switch: */
-	switch (e.e_ident[EI_DATA])
+	switch (h.e_ident[EI_DATA])
 	{
 		/* Case 1: */
 		case ELFDATA2MSB:
@@ -68,13 +68,13 @@ void p_d(Elf64_Ehdr e)
 }
 /**
  * p_v - Write a function that returns the ELF version.
- * @e: The elf header.
+ * @h: The elf header.
 */
-void p_v(Elf64_Ehdr e)
+void p_v(Elf64_Ehdr h)
 {
-	printf("  Version:                           %d", e.e_ident[EI_VERSION]);
+	printf("  Version:                           %d", h.e_ident[EI_VERSION]);
 	/* Switch: */
-	switch (e.e_ident[EI_VERSION])
+	switch (h.e_ident[EI_VERSION])
 	{
 		/* Case 1: */
 		case EV_CURRENT:
@@ -91,13 +91,13 @@ void p_v(Elf64_Ehdr e)
 }
 /**
  * p_o - Write a function that returns the ELF osabi.
- * @e: The elf header.
+ * @h: The elf header.
 */
-void p_o(Elf64_Ehdr e)
+void p_o(Elf64_Ehdr h)
 {
 	printf("  OS/ABI:                            ");
 	/* Switch: */
-	switch (e.e_ident[EI_OSABI])
+	switch (h.e_ident[EI_OSABI])
 	{
 		case ELFOSABI_NONE:
 			printf("UNIX - System V");
@@ -127,7 +127,7 @@ void p_o(Elf64_Ehdr e)
 			printf("UNIX - TRU64");
 			break;
 		default:
-			p_o_m(e);
+			p_o_m(h);
 			break;
 	}
 
@@ -135,12 +135,12 @@ void p_o(Elf64_Ehdr e)
 }
 /**
  * p_o_m - Write a function that returns the ELF osabi.
- * @e: The elf header.
+ * @h: The elf header.
 */
-void p_o_m(Elf64_Ehdr e)
+void p_o_m(Elf64_Ehdr h)
 {
 	/* Switch: */
-	switch (e.e_ident[EI_OSABI])
+	switch (h.e_ident[EI_OSABI])
 	{
 		/* Case 1: */
 		case ELFOSABI_MODESTO:
@@ -160,32 +160,32 @@ void p_o_m(Elf64_Ehdr e)
 			break;
 		/* default: */
 		default:
-			printf("<unknown: %x>", e.e_ident[EI_OSABI]);
+			printf("<unknown: %x>", h.e_ident[EI_OSABI]);
 			break;
 	}
 }
 /**
  * p_a  - Write a function that returns the ELF ABI.
- * @e: the ELF header struct
+ * @h: The elf header.
 */
-void p_a(Elf64_Ehdr e)
+void p_a(Elf64_Ehdr h)
 {
 	printf("  ABI Version:                       %d\n",
-		e.e_ident[EI_ABIVERSION]);
+		h.e_ident[EI_ABIVERSION]);
 }
 /**
  * p_t - Write a function that returns the ELF type.
- * @e: the ELF header struct
+ * @h: The elf header.
 */
-void p_t(Elf64_Ehdr e)
+void p_t(Elf64_Ehdr h)
 {
 	int index;
-	char *s = (char *)&e.e_type;
+	char *s = (char *)&h.e_type;
 
 	index = 0;
 	printf("  Type:                              ");
 	/* If condition: */
-	if (e.e_ident[EI_DATA] == ELFDATA2MSB)
+	if (h.e_ident[EI_DATA] == ELFDATA2MSB)
 		index = 1;
 	/* Switch: */
 	switch (s[index])
@@ -220,21 +220,21 @@ void p_t(Elf64_Ehdr e)
 }
 /**
  * p_e - Write a function that returns the ELF address.
- * @e: the ELF header struct
+ * @h: The elf header.
 */
-void p_e(Elf64_Ehdr e)
+void p_e(Elf64_Ehdr h)
 {
 	int index;
 	int lth;
-	unsigned char *s = (unsigned char *)&e.e_entry;
+	unsigned char *s = (unsigned char *)&h.e_entry;
 
 	index = 0
 	lth = 0;
 	printf("  Entry point address:               0x");
 	/* If condition: */
-	if (e.e_ident[EI_DATA] != ELFDATA2MSB)
+	if (h.e_ident[EI_DATA] != ELFDATA2MSB)
 	{
-		index = e.e_ident[EI_CLASS] == ELFCLASS64 ? 7 : 3;
+		index = h.e_ident[EI_CLASS] == ELFCLASS64 ? 7 : 3;
 		while (!s[index])
 		{
 			index--;
@@ -249,7 +249,7 @@ void p_e(Elf64_Ehdr e)
 	else
 	{
 		index = 0;
-		lth = e.e_ident[EI_CLASS] == ELFCLASS64 ? 7 : 3;
+		lth = h.e_ident[EI_CLASS] == ELFCLASS64 ? 7 : 3;
 		while (!s[index])
 		{
 			index++;
@@ -280,11 +280,11 @@ int main(int argc, char **argv)
 	f_n = open(argv[1], O_RDONLY);
 	if (f_n == -1)
 		dprintf(STDERR_FILENO, "Can't open file: %s\n", argv[1]), exit(98);
-	b_s = read(f_n, &e, sizeof(e));
-	if (b_s < 1 || b_s != sizeof(e))
+	b_s = read(f_n, &h, sizeof(h));
+	if (b_s < 1 || b_s != sizeof(h))
 		dprintf(STDERR_FILENO, "Can't read from file: %s\n", argv[1]), exit(98);
-	if (e.e_ident[0] == 0x7f && e.e_ident[1] == 'E' && e.e_ident[2] == 'L' &&
-			e.e_ident[3] == 'F')
+	if (h.e_ident[0] == 0x7f && h.e_ident[1] == 'E' && h.e_ident[2] == 'L' &&
+			h.e_ident[3] == 'F')
 	{
 		printf("ELF Header:\n");
 	}
@@ -293,14 +293,14 @@ int main(int argc, char **argv)
 		dprintf(STDERR_FILENO, "Not ELF file: %s\n", argv[1]);
 		exit(98);
 	}
-	p_m(e);
-	p_c(e);
-	p_d(e);
-	p_v(e);
-	p_o(e);
-	p_a(e);
-	p_t(e);
-	p_e(e);
+	p_m(h);
+	p_c(h);
+	p_d(h);
+	p_v(h);
+	p_o(h);
+	p_a(h);
+	p_t(h);
+	p_e(h);
 	if (close(f_n))
 	{
 		dprintf(STDERR_FILENO, "Error closing file descriptor: %d\n", f_n);
