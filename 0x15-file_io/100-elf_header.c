@@ -1,37 +1,6 @@
 #include "main.h"
 #include <elf.h>
-/**
- * p_o_m - Write a function that returns the ELF osabi.
- * @e: The elf header.
-*/
 void p_o_m(Elf64_Ehdr e);
-void p_o_m(Elf64_Ehdr e)
-{
-	/* Switch: */
-	switch (e.e_ident[EI_OSABI])
-	{
-		/* Case 1: */
-		case ELFOSABI_MODESTO:
-			printf("Novell - Modesto");
-		break;
-		/* Case 2: */
-		case ELFOSABI_OPENBSD:
-			printf("UNIX - OpenBSD");
-		break;
-		/* Case 3: */
-		case ELFOSABI_STANDALONE:
-			printf("Standalone App");
-		break;
-		/* Case 4: */
-		case ELFOSABI_ARM:
-			printf("ARM");
-		break;
-		/* default: */
-		default:
-			printf("<unknown: %x>", e.e_ident[EI_OSABI]);
-		break;
-	}
-}
 /**
  * p_m - Write a function that returns the ELF magic.
  * @e: The elf header.
@@ -132,37 +101,68 @@ void p_o(Elf64_Ehdr e)
 	{
 		case ELFOSABI_NONE:
 			printf("UNIX - System V");
-		break;
+			break;
 		case ELFOSABI_HPUX:
 			printf("UNIX - HP-UX");
-		break;
+			break;
 		case ELFOSABI_NETBSD:
 			printf("UNIX - NetBSD");
-		break;
+			break;
 		case ELFOSABI_LINUX:
 			printf("UNIX - Linux");
-		break;
+			break;
 		case ELFOSABI_SOLARIS:
 			printf("UNIX - Solaris");
-		break;
+			break;
 		case ELFOSABI_AIX:
 			printf("UNIX - AIX");
-		break;
+			break;
 		case ELFOSABI_IRIX:
 			printf("UNIX - IRIX");
-		break;
+			break;
 		case ELFOSABI_FREEBSD:
 			printf("UNIX - FreeBSD");
-		break;
+			break;
 		case ELFOSABI_TRU64:
 			printf("UNIX - TRU64");
-		break;
+			break;
 		default:
 			print_osabi_more(e);
-		break;
+			break;
 	}
 
 	printf("\n");
+}
+/**
+ * p_o_m - Write a function that returns the ELF osabi.
+ * @e: The elf header.
+*/
+void p_o_m(Elf64_Ehdr e)
+{
+	/* Switch: */
+	switch (e.e_ident[EI_OSABI])
+	{
+		/* Case 1: */
+		case ELFOSABI_MODESTO:
+			printf("Novell - Modesto");
+			break;
+		/* Case 2: */
+		case ELFOSABI_OPENBSD:
+			printf("UNIX - OpenBSD");
+			break;
+		/* Case 3: */
+		case ELFOSABI_STANDALONE:
+			printf("Standalone App");
+			break;
+		/* Case 4: */
+		case ELFOSABI_ARM:
+			printf("ARM");
+			break;
+		/* default: */
+		default:
+			printf("<unknown: %x>", e.e_ident[EI_OSABI]);
+			break;
+	}
 }
 /**
  * p_a  - Write a function that returns the ELF ABI.
@@ -194,23 +194,23 @@ void p_t(Elf64_Ehdr e)
 		/* Case 1: */
 		case ET_NONE:
 			printf("NONE (None)");
-		break;
+			break;
 		/* Case 2: */
 		case ET_REL:
 			printf("REL (Relocatable file)");
-		break;
+			break;
 		/* Case 3: */
 		case ET_EXEC:
 			printf("EXEC (Executable file)");
-		break;
+			break;
 		/* Case 4: */
 		case ET_DYN:
 			printf("DYN (Shared object file)");
-		break;
+			break;
 		/* Case 5: */
 		case ET_CORE:
 			printf("CORE (Core file)");
-		break;
+			break;
 		/* default: */
 		default:
 			printf("<unknown>: %x", s[index]);
