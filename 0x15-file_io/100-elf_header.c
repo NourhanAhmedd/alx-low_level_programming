@@ -180,10 +180,9 @@ void p_a(Elf64_Ehdr e)
 void p_t(Elf64_Ehdr e)
 {
 	int index;
-	char *s;
+	char *s = (char *)&e.e_type;
 
 	index = 0;
-	s = (char *)&e.e_type;
 	printf("  Type:                              ");
 	/* If condition: */
 	if (e.e_ident[EI_DATA] == ELFDATA2MSB)
@@ -227,11 +226,10 @@ void p_e(Elf64_Ehdr e)
 {
 	int index;
 	int lth;
-	unsigned char *s;
+	unsigned char *s = (unsigned char *)&e.e_entry;
 
 	index = 0
 	lth = 0;
-	s = (unsigned char *)&e.e_entry;
 	printf("  Entry point address:               0x");
 	/* If condition: */
 	if (e.e_ident[EI_DATA] != ELFDATA2MSB)
