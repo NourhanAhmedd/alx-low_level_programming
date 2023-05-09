@@ -271,7 +271,7 @@ void p_e(Elf64_Ehdr h)
 */
 int main(int argc, char **argv)
 {
-	Elf64_Ehdr e;
+	Elf64_Ehdr h;
 	int f_n;
 	ssize_t b_s;
 
