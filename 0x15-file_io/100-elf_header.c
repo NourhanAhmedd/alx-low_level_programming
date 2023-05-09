@@ -127,7 +127,7 @@ void p_o(Elf64_Ehdr e)
 			printf("UNIX - TRU64");
 			break;
 		default:
-			print_osabi_more(e);
+			p_o_m(e);
 			break;
 	}
 
