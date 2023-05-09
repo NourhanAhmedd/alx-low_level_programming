@@ -228,7 +228,7 @@ void p_e(Elf64_Ehdr h)
 	int lth;
 	unsigned char *s = (unsigned char *)&h.e_entry;
 
-	index = 0
+	index = 0;
 	lth = 0;
 	printf("  Entry point address:               0x");
 	/* If condition: */
