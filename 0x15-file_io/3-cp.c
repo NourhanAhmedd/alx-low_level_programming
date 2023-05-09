@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 /* define: */
-#define US "USAGE: cp file_from file_to\n"
+#define US "Usage: cp file_from file_to\n"
 #define PERS (S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH)
 #define NW_E "Error: Can't write to %s\n"
 #define NR_E "Error: Can't read from file %s\n"
